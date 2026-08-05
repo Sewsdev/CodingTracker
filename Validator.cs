@@ -11,8 +11,13 @@ internal static class Validator
             out _);
     }
 
-    public static bool IsStartDateEarlierThanEndDate(DateTime startDate, DateTime endDate)
+    public static bool IsDateLaterThan(DateTime date, DateTime comparisonDate)
     {
-        return DateTime.Compare(startDate, endDate) > 0;
+        return DateTime.Compare(date, comparisonDate) > 0;
+    }
+
+    public static bool IsNotFutureDate(DateTime dateTime)
+    {
+        return DateTime.Compare(dateTime, DateTime.Now) < 0;
     }
 }

@@ -13,6 +13,8 @@ internal class UserInterface
     
     public void MainMenu()
     {
+        Console.Clear();
+        
         while (true)
         {
             AnsiConsole.MarkupLine("[yellow bold]Coding Tracker[/]\n");
@@ -26,6 +28,9 @@ internal class UserInterface
             {
                 case MenuAction.AddSession:
                     _codingSessionController.Add();
+                    break;
+                case MenuAction.ViewSessions:
+                    _codingSessionController.ViewAll();
                     break;
             }
         }

@@ -13,6 +13,13 @@ internal class CodingSessionRepository
         _connectionString = connectionString;
     }
 
+    public List<CodingSession> GetAll()
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        var sql = "SELECT * FROM CodingSessions";
+        return [.. connection.Query<CodingSession>(sql)];
+    }
+    
     public void Add(CodingSession codingSession)
     {
         using var connection = new SqliteConnection(_connectionString);

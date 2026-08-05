@@ -69,6 +69,5 @@ internal class CodingSessionController
         
         AnsiConsole.Write(table);
         InputReader.AwaitAnyKeyPress();
-        Console.Clear();
     }
 }

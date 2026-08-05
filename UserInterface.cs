@@ -13,10 +13,11 @@ internal class UserInterface
     
     public void MainMenu()
     {
-        Console.Clear();
         
         while (true)
         {
+            Console.Clear();
+        
             AnsiConsole.MarkupLine("[yellow bold]Coding Tracker[/]\n");
 
             var menuChoice = AnsiConsole.Prompt(

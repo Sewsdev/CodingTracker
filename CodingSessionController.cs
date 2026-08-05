@@ -1,3 +1,5 @@
+using Spectre.Console;
+
 namespace CodingTracker;
 
 internal class CodingSessionController
@@ -13,12 +15,21 @@ internal class CodingSessionController
     
     public void Add()
     {
-        DateTime startTime = InputReader.GetDate("Start date:", _appConfig.DateTimeSettings);
-        DateTime endTime = InputReader.GetDate("End date:", _appConfig.DateTimeSettings);
+        AnsiConsole.MarkupLine($"[bold]Make sure the date you provide uses military time and is in the correct format ({_appConfig.DateTimeSettings.Format})[/]\n");
+        
+        DateTime startDate = InputReader.GetDate("Start date:", _appConfig.DateTimeSettings);
+        DateTime endDate = InputReader.GetDate("End date:", _appConfig.DateTimeSettings);
+
+        while (!Validator.IsStartDateEarlierThanEndDate(startDate, endDate))
+        {
+            AnsiConsole.MarkupLine("[red]End date must be later than the start date.[/]");
+            endDate = InputReader.GetDate("End date:", _appConfig.DateTimeSettings);
+        }
+        
         _codingSessionRepository.Add(new CodingSession
         {
-            StartTime = startTime,
-            EndTime = endTime
+            StartDate = startDate,
+            EndDate = endDate
         });
     }
 }

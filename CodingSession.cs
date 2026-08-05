@@ -3,7 +3,8 @@ namespace CodingTracker;
 public class CodingSession
 {
     public int Id { get; init; }
-    public DateTime StartTime { get; init; }
-    public DateTime EndTime { get; init; }
-    public TimeSpan Duration => EndTime.Subtract(StartTime);
+    public DateTime StartDate { get; init; }
+    public DateTime EndDate { get; init; }
+    
+    public TimeSpan Duration => EndDate.Subtract(StartDate);
 }

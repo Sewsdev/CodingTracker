@@ -10,5 +10,5 @@ var appConfig = new AppConfig(configuration);
 var databaseInitializer = new DatabaseInitializer(appConfig.DbConnectionString);
 databaseInitializer.Initialize();
 
-var controller = new CodingSessionController(appConfig);
-controller.Add();
+var userInterface = new UserInterface(appConfig);
+userInterface.MainMenu();

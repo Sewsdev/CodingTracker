@@ -10,4 +10,9 @@ internal static class Validator
             dateTimeSettings.Styles,
             out _);
     }
+
+    public static bool IsStartDateEarlierThanEndDate(DateTime startDate, DateTime endDate)
+    {
+        return DateTime.Compare(startDate, endDate) > 0;
+    }
 }

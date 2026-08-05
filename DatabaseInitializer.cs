@@ -18,8 +18,8 @@ internal class DatabaseInitializer
 
         var sql = @"CREATE TABLE IF NOT EXISTS CodingSessions (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    StartTime TEXT NOT NULL,
-                    EndTime TEXT NOT NULL)";
+                    StartDate TEXT NOT NULL,
+                    EndDate TEXT NOT NULL)";
 
         connection.Execute(sql);
     }
